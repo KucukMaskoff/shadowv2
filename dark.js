@@ -51,14 +51,14 @@ client.setMaxListeners(30)
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection(); 
 
-fs.readdir("./komutlar/", (err, files) => { 
+fs.readdir("./Komutlar/", (err, files) => { 
 if(err) console.error(err)
 files.forEach(f => {
- fs.readdir(`./komutlar/${f}`, (err, filess) => {
+ fs.readdir(`./Komutlar/${f}`, (err, filess) => {
  if (err) console.error(err);
  console.log(chalk.red(`${f} `)+chalk.green(`Klasöründen `)+chalk.red(`${filess.length} `)+chalk.green(`Komut Yüklendi`)+chalk.red(`!`));
  filess.forEach(fs => { 
-   let props = require(`./komutlar/${f}/${fs}`)
+   let props = require(`./Komutlar/${f}/${fs}`)
     client.commands.set(props.config.name, props);
     props.config.aliases.forEach(alias => client.aliases.set(alias, props.help.name));
  })
@@ -66,7 +66,7 @@ files.forEach(f => {
 })
 })
 // app.listen(process.env.PORT)
-client.login('ODQ3MDY4NzYzMjAzNDM2NTQ0.YK4sQg.Mla7iPIjzgwF548LnP9_jsNguVA')
+client.login('')
 //-----------KOMUTLAR--------------//
 //-----------oynuyor--------------//
 client.on('ready', () => {
